@@ -159,14 +159,14 @@ If you still have a problem, post a question including all the details:
 Step 01 - Setting up Limits Microservice
 
 On Spring Initializr, choose:
-- Group Id: com.in28minutes.microservices
+- Group Id: com.kishor.microservices
 - Artifact Id: limits-service
 - Dependencies
 	- Web
 	- DevTools
 	- Actuator
 	- Config Client
-- PackageName: com.in28minutes.microservices.limitsservice
+- PackageName: com.kishor.microservices.limitsservice
 
 In `application.properties`, configure this:
 
@@ -183,7 +183,7 @@ Step 02 - Creating a hard coded limits service
 #### /limits-service/src/main/java/com/kishor/microservices/limitsservice/bean/Limits.java New
 
 ```java
-package com.in28minutes.microservices.limitsservice.bean;
+package com.kishor.microservices.limitsservice.bean;
 
 public class Limits {
 	private int minimum;
@@ -221,12 +221,12 @@ public class Limits {
 #### /limits-service/src/main/java/com/kishor/microservices/limitsservice/controller/LimitsController.java New
 
 ```java
-package com.in28minutes.microservices.limitsservice.controller;
+package com.kishor.microservices.limitsservice.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.in28minutes.microservices.limitsservice.bean.Limits;
+import com.kishor.microservices.limitsservice.bean.Limits;
 
 @RestController
 public class LimitsController {
@@ -247,7 +247,7 @@ Step 03 - Enhance limits service to pick up configuration from application prope
 #### /limits-service/src/main/java/com/kishor/microservices/limitsservice/configuration/Configuration.java New
 
 ```java
-package com.in28minutes.microservices.limitsservice.configuration;
+package com.kishor.microservices.limitsservice.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -280,14 +280,14 @@ public class Configuration {
 #### /limits-service/src/main/java/com/kishor/microservices/limitsservice/controller/LimitsController.java Modified
 
 ```java
-package com.in28minutes.microservices.limitsservice.controller;
+package com.kishor.microservices.limitsservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.in28minutes.microservices.limitsservice.bean.Limits;
-import com.in28minutes.microservices.limitsservice.configuration.Configuration;
+import com.kishor.microservices.limitsservice.bean.Limits;
+import com.kishor.microservices.limitsservice.configuration.Configuration;
 
 @RestController
 public class LimitsController {
@@ -317,7 +317,7 @@ limits-service.maximum=997
 Step 04 - Setting up Spring Cloud Config Server
 
 On Spring Initializr, choose:
-- Group Id: com.in28minutes.microservices
+- Group Id: com.kishor.microservices
 - Artifact Id: spring-cloud-config-server
 - Dependencies
 	- DevTools
@@ -467,7 +467,7 @@ limits-service.maximum=996
 Step 10 - Setting up Currency Exchange Microservice
 
 On Spring Initializr, choose:
-- Group Id: com.in28minutes.microservices
+- Group Id: com.kishor.microservices
 - Artifact Id: currency-exchange-service
 - Dependencies
 	- Web
@@ -507,7 +507,7 @@ URL
 #### /currency-exchange-service/src/main/java/com/kishor/microservices/currencyexchangeservice/CurrencyExchange.java New
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -572,7 +572,7 @@ public class CurrencyExchange {
 #### /currency-exchange-service/src/main/java/com/kishor/microservices/currencyexchangeservice/CurrencyExchangeController.java New
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -608,7 +608,7 @@ Step 12 - Setting up Dynamic Port in the the Response
 #### /currency-exchange-service/src/main/java/com/kishor/microservices/currencyexchangeservice/CurrencyExchangeController.java New
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -644,7 +644,7 @@ public class CurrencyExchangeController {
 Adding `private String environment` and getters and setters
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -746,7 +746,7 @@ New Lines
 #### /currency-exchange-service/src/main/java/com/kishor/microservices/currencyexchangeservice/CurrencyExchange.java Modified
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -804,7 +804,7 @@ Step 14 - Create a JPA Repository
 
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -849,7 +849,7 @@ public class CurrencyExchangeController {
 #### /currency-exchange-service/src/main/java/com/kishor/microservices/currencyexchangeservice/CurrencyExchangeRepository.java New
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -866,7 +866,7 @@ public interface CurrencyExchangeRepository
 Step 15 - Setting up Currency Conversion Microservice
 
 On Spring Initializr, choose:
-- Group Id: com.in28minutes.microservices
+- Group Id: com.kishor.microservices
 - Artifact Id: currency-conversion-service
 - Dependencies
 	- Web
@@ -908,7 +908,7 @@ URL
 #### /currency-conversion-service/src/main/java/com/kishor/microservices/currencyconversionservice/CurrencyConversionController.java New
 
 ```java
-package com.in28minutes.microservices.currencyconversionservice;
+package com.kishor.microservices.currencyconversionservice;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -943,7 +943,7 @@ public class CurrencyConversionController {
 #### /currency-conversion-service/src/main/java/com/kishor/microservices/currencyconversionservice/CurrencyConversion.java New
 
 ```java
-package com.in28minutes.microservices.currencyconversionservice;
+package com.kishor.microservices.currencyconversionservice;
 
 import java.math.BigDecimal;
 
@@ -1043,7 +1043,7 @@ Step 17 - Invoking Currency Exchange Microservice from Currency Conversion Micro
 #### /currency-conversion-service/src/main/java/com/kishor/microservices/currencyconversionservice/CurrencyConversionController.java Modified
 
 ```java
-package com.in28minutes.microservices.currencyconversionservice;
+package com.kishor.microservices.currencyconversionservice;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -1091,7 +1091,7 @@ public class CurrencyConversionController {
 ### Debugging problems with Feign
 ---
 
-(1) Ensure that you have the annotation @EnableFeignClients with right packages on the class public class CurrencyConversionServiceApplication @EnableFeignClients("com.in28minutes.microservices.currencyconversionservice")
+(1) Ensure that you have the annotation @EnableFeignClients with right packages on the class public class CurrencyConversionServiceApplication @EnableFeignClients("com.kishor.microservices.currencyconversionservice")
 
 (2) Ensure you have path variables defined for from and to with the key from and to as shown in CurrencyExchangeServiceProxy - @PathVariable("from") String from, @PathVariable("to") String to
 
@@ -1149,7 +1149,7 @@ New Lines
 #### /currency-conversion-service/src/main/java/com/kishor/microservices/currencyconversionservice/CurrencyExchangeProxy.java New
 
 ```java
-package com.in28minutes.microservices.currencyconversionservice;
+package com.kishor.microservices.currencyconversionservice;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -1201,7 +1201,7 @@ public class CurrencyConversionController {
 
 ```java
 @SpringBootApplication
-@EnableFeignClients("com.in28minutes.microservices.currencyconversionservice")
+@EnableFeignClients("com.kishor.microservices.currencyconversionservice")
 public class CurrencyConversionServiceApplication {
 ```
 ---
@@ -1274,13 +1274,13 @@ If you still have a problem, post a question including all the details:
 ---
 
 On Spring Initializr, choose:
-- Group Id: com.in28minutes.microservices
+- Group Id: com.kishor.microservices
 - Artifact Id: naming-server
 - Dependencies
 	- DevTools
 	- Actuator
 	- Eureka Server
-- PackageName: com.in28minutes.microservices.namingserver
+- PackageName: com.kishor.microservices.namingserver
 
 
 Step 19 - Understand Naming Server and Setting up Eureka Naming Server
@@ -1294,7 +1294,7 @@ Eureka
 
 
 ```java
-package com.in28minutes.microservices.namingserver;
+package com.kishor.microservices.namingserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -1494,7 +1494,7 @@ If you still have a problem, post a question including all the details:
 Step 22 - Setting up Spring Cloud API Gateway
 
 On Spring Initializr, choose:
-- Group Id: com.in28minutes.microservices
+- Group Id: com.kishor.microservices
 - Artifact Id: api-gateway
 - Dependencies
 	- DevTools
@@ -1574,7 +1574,7 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka
 #### /api-gateway/src/main/java/com/kishor/microservices/apigateway/ApiGatewayConfiguration.java New
 
 ```java
-package com.in28minutes.microservices.apigateway;
+package com.kishor.microservices.apigateway;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
@@ -1619,7 +1619,7 @@ Step 25 - Implementing Spring Cloud Gateway Logging Filter
 #### /api-gateway/src/main/java/com/kishor/microservices/apigateway/LoggingFilter.java New
 
 ```java
-package com.in28minutes.microservices.apigateway;
+package com.kishor.microservices.apigateway;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -1699,7 +1699,7 @@ New Lines
 #### /currency-exchange-service/src/main/java/com/kishor/microservices/currencyexchangeservice/CircuitBreakerController.java New
 
 ```java
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.kishor.microservices.currencyexchangeservice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
